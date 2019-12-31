@@ -5,7 +5,8 @@ const Schema = mongoose.Schema;
 let listaAmigosSecretosSchema = new Schema( {
         usuario: {
                 type: Schema.Types.ObjectId,
-                ref: 'Usuario'
+                ref: 'Usuario',
+                required: [ true, 'El campo usuario es requerido' ]
         },
         amigos: {
             type: []
@@ -18,6 +19,18 @@ let listaAmigosSecretosSchema = new Schema( {
         },
         linkShare: {
                 type: String
+        },
+        descripcion: {
+                type: String,
+                required: [ true, 'El campo descripción es requerido' ]
+        },
+        numeroAmigos: {
+                type: Number,
+                default: 0
+        },
+        estado: {
+                type: Boolean,
+                default: true
         }
 } );
 

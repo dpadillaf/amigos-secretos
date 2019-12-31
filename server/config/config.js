@@ -19,17 +19,20 @@ process.env.VENCIMINTO_TOKEN = 60 * 60 * 24 * 30;
 process.env.SEED = process.env.SEED || 'token-desarrollo';
 
 /**
- * Definir BD
+ * Definir BD y LinkShare
  */
-let urlDB;
+let urlDB, linkShare;
 
 if ( process.env.NODE_ENV === 'dev' ){
     urlDB = 'mongodb://localhost:27017/amigo-secreto';
+    linkShare = 'http://localhost:3000/amigo/';
 }else{
     urlDB = process.env.MONGO_URI;
+    linkShare = process.env.LINK_HOST;
 }
 
 process.env.URLDB = urlDB;
+process.env.LINKSHARE = linkShare;
 
 /**
  * google client id
